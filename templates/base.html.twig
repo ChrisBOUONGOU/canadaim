@@ -43,6 +43,20 @@
     <div class="container-fluid">
         {% block body %}{% endblock %}
     </div>
+
+    <!-- Messages Flash -->
+    {% if app.flashes %}
+        <div class="container mt-4">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
         <div class="container-fluid">
             <footer class="py-5">
                 <div class="row">

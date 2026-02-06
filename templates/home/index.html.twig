@@ -3,87 +3,125 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+<!-- Hero Section -->
+<div class="bg-gradient-primary text-white py-5" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-3">Réalisez Votre Rêve Canadien</h1>
+                <p class="lead mb-4">Votre partenaire de confiance pour l'immigration, l'emploi et les études au Canada</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ path('contact') }}" class="btn btn-light btn-lg">Commencer Maintenant</a>
+                    <a href="{{ path('a_propos') }}" class="btn btn-outline-light btn-lg">En Savoir Plus</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center d-none d-lg-block">
+                <img src="../img/logo.jpg" alt="Canadaim" class="img-fluid" style="max-width: 300px; filter: brightness(0) invert(1);">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-5">
-    <div class="row mb-5">
-        <div class="col-12">
-            <h1 class="display-4">Bienvenue sur Canadaim</h1>
-            <p class="lead">Votre partenaire de confiance pour l'immigration, l'emploi et les études au Canada</p>
+    <!-- Dernières Actualités -->
+    <section class="mb-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="fw-bold mb-2">Dernières Actualités</h2>
+                <p class="text-muted">Découvrez les dernières nouveautés et opportunités</p>
+            </div>
         </div>
-    </div>
-
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="mb-4">Dernières Actualités</h2>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Nouveaux programmes d'immigration 2026</h5>
-                    <p class="card-text">Découvrez les nouveaux programmes d'immigration lancés par le gouvernement canadien cette année.</p>
-                    <a href="{{ path('immigration') }}" class="btn btn-primary">En savoir plus</a>
+        <div class="row g-4">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="badge bg-danger">Immigration</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nouveaux programmes d'immigration 2026</h5>
+                        <p class="card-text">Découvrez les nouveaux programmes d'immigration lancés par le gouvernement canadien cette année.</p>
+                        <a href="{{ path('immigration') }}" class="btn btn-sm btn-danger">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="badge bg-info">Travail</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Opportunités d'emploi au Canada</h5>
+                        <p class="card-text">Les secteurs en demande continuent de recruter. Consultez nos offres d'emploi exclusives.</p>
+                        <a href="{{ path('travail') }}" class="btn btn-sm btn-danger">Consulter les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="badge bg-success">Études</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bourses d'études disponibles</h5>
+                        <p class="card-text">De nombreuses bourses sont disponibles pour les étudiants internationaux au Canada.</p>
+                        <a href="{{ path('etude') }}" class="btn btn-sm btn-danger">Voir les bourses</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Opportunités d'emploi au Canada</h5>
-                    <p class="card-text">Les secteurs en demande continuent de recruter. Consultez nos offres d'emploi exclusives.</p>
-                    <a href="{{ path('travail') }}" class="btn btn-primary">Consulter les offres</a>
+    </section>
+
+    <!-- Pourquoi choisir Canadaim -->
+    <section class="mb-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="fw-bold mb-2">Pourquoi choisir Canadaim?</h2>
+                <p class="text-muted">Les raisons qui font notre succès</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 mb-4">
+                <div class="feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                    <h5>Expertise reconnue</h5>
+                    <p>Plus de 10 ans d'expérience dans l'immigration canadienne</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                    <h5>Équipe professionnelle</h5>
+                    <p>Des consultants qualifiés et expérimentés à votre service</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                    <h5>Confiance garantie</h5>
+                    <p>Services sécurisés et transparents avec suivi personnalisé</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                    <h5>Couverture mondiale</h5>
+                    <p>Disponibles pour les clients partout dans le monde</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Bourses d'études disponibles</h5>
-                    <p class="card-text">De nombreuses bourses sont disponibles pour les étudiants internationaux au Canada.</p>
-                    <a href="{{ path('etude') }}" class="btn btn-primary">Voir les bourses</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="mb-4">Pourquoi choisir Canadaim?</h2>
-        </div>
-        <div class="col-md-3 mb-4 text-center">
-            <div class="feature">
-                <i class="bi bi-check-circle" style="font-size: 2rem; color: #dc3545;"></i>
-                <h5 class="mt-3">Expertise reconnue</h5>
-                <p>Plus de 10 ans d'expérience dans l'immigration canadienne</p>
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; margin-bottom: 3rem;">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="fw-bold mb-2">Commencez votre parcours avec nous</h3>
+                <p class="text-muted mb-0">Que vous souhaitiez immigrer, trouver un emploi ou poursuivre vos études au Canada, nous sommes là pour vous aider.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a href="{{ path('contact') }}" class="btn btn-danger btn-lg">Nous contacter</a>
             </div>
         </div>
-        <div class="col-md-3 mb-4 text-center">
-            <div class="feature">
-                <i class="bi bi-people-fill" style="font-size: 2rem; color: #dc3545;"></i>
-                <h5 class="mt-3">Équipe professionnelle</h5>
-                <p>Des consultants qualifiés et expérimentés à votre service</p>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4 text-center">
-            <div class="feature">
-                <i class="bi bi-shield-check" style="font-size: 2rem; color: #dc3545;"></i>
-                <h5 class="mt-3">Confiance garantie</h5>
-                <p>Services sécurisés et transparents avec suivi personnalisé</p>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4 text-center">
-            <div class="feature">
-                <i class="bi bi-globe" style="font-size: 2rem; color: #dc3545;"></i>
-                <h5 class="mt-3">Couverture mondiale</h5>
-                <p>Disponibles pour les clients partout dans le monde</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row bg-light p-4 rounded">
-        <div class="col-12">
-            <h3>Commencez votre parcours avec nous</h3>
-            <p>Que vous souhaitiez immigrer, trouver un emploi ou poursuivre vos études au Canada, nous sommes là pour vous aider.</p>
-            <a href="{{ path('contact') }}" class="btn btn-danger btn-lg">Nous contacter maintenant</a>
-        </div>
-    </div>
+    </section>
 </div>
 {% endblock %}
