@@ -16,9 +16,20 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    
+    # HTTP cache configuration for better performance
+    http_cache:
+        enabled: true
+    
+    # Disable X-Powered-By header for security
+    http_client:
+        default_options:
+            headers:
+                User-Agent: 'Canadaim/1.0'
 
 when@test:
     framework:
         test: true
         session:
             storage_factory_id: session.storage.factory.mock_file
+

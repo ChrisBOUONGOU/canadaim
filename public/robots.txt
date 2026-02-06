@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /var/
+Disallow: /vendor/
+
+Sitemap: https://canadaim.com/sitemap.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 1

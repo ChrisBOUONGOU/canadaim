@@ -26,7 +26,7 @@ class ContactMessageType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le nom est requis']),
-                    new Assert\Length(['min' => 2, 'max' => 255])
+                    new Assert\Length(['min' => 2, 'max' => 255, 'minMessage' => 'Le nom doit contenir au moins 2 caractères', 'maxMessage' => 'Le nom ne peut pas dépasser 255 caractères'])
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -73,7 +73,7 @@ class ContactMessageType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le message est requis']),
-                    new Assert\Length(['min' => 10, 'message' => 'Le message doit contenir au moins 10 caractères'])
+                    new Assert\Length(['min' => 10, 'minMessage' => 'Le message doit contenir au moins 10 caractères'])
                 ]
             ])
         ;

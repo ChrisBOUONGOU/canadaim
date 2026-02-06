@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: canadaim-web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - .:/var/www/html
+      - ./var:/var/www/html/var
+      - ./public:/var/www/html/public
+    environment:
+      - APP_ENV=prod
+      - APP_DEBUG=0
+      - DATABASE_URL=mysql://canadaim:canadaim123@db:3306/canadaim
+      - MAILER_DSN=smtp://mailhog:1025
+    depends_on:
+      - db
+    networks:
+      - canadaim-network
+
+  db:
+    image: mysql:8.0
+    container_name: canadaim-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=canadaim
+      - MYSQL_USER=canadaim
+      - MYSQL_PASSWORD=canadaim123
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - canadaim-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: canadaim-mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - canadaim-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: canadaim-phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=canadaim
+      - PMA_PASSWORD=canadaim123
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - canadaim-network
+
+volumes:
+  db_data:
+
+networks:
+  canadaim-network:
+    driver: bridge
