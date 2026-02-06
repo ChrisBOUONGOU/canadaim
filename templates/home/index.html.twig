@@ -3,10 +3,87 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<div class="land">
-    <h1>Bienvenue sur le site AccompaCanada</h1>
-    <p>Ceci est la page d'accueil.</p>
-    <h2>Derniers infos</h2>
-    <h2>Pourquoi nous?</h2>
+<div class="container mt-5">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1 class="display-4">Bienvenue sur Canadaim</h1>
+            <p class="lead">Votre partenaire de confiance pour l'immigration, l'emploi et les études au Canada</p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="mb-4">Dernières Actualités</h2>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Nouveaux programmes d'immigration 2026</h5>
+                    <p class="card-text">Découvrez les nouveaux programmes d'immigration lancés par le gouvernement canadien cette année.</p>
+                    <a href="{{ path('immigration') }}" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Opportunités d'emploi au Canada</h5>
+                    <p class="card-text">Les secteurs en demande continuent de recruter. Consultez nos offres d'emploi exclusives.</p>
+                    <a href="{{ path('travail') }}" class="btn btn-primary">Consulter les offres</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Bourses d'études disponibles</h5>
+                    <p class="card-text">De nombreuses bourses sont disponibles pour les étudiants internationaux au Canada.</p>
+                    <a href="{{ path('etude') }}" class="btn btn-primary">Voir les bourses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="mb-4">Pourquoi choisir Canadaim?</h2>
+        </div>
+        <div class="col-md-3 mb-4 text-center">
+            <div class="feature">
+                <i class="bi bi-check-circle" style="font-size: 2rem; color: #dc3545;"></i>
+                <h5 class="mt-3">Expertise reconnue</h5>
+                <p>Plus de 10 ans d'expérience dans l'immigration canadienne</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 text-center">
+            <div class="feature">
+                <i class="bi bi-people-fill" style="font-size: 2rem; color: #dc3545;"></i>
+                <h5 class="mt-3">Équipe professionnelle</h5>
+                <p>Des consultants qualifiés et expérimentés à votre service</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 text-center">
+            <div class="feature">
+                <i class="bi bi-shield-check" style="font-size: 2rem; color: #dc3545;"></i>
+                <h5 class="mt-3">Confiance garantie</h5>
+                <p>Services sécurisés et transparents avec suivi personnalisé</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 text-center">
+            <div class="feature">
+                <i class="bi bi-globe" style="font-size: 2rem; color: #dc3545;"></i>
+                <h5 class="mt-3">Couverture mondiale</h5>
+                <p>Disponibles pour les clients partout dans le monde</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row bg-light p-4 rounded">
+        <div class="col-12">
+            <h3>Commencez votre parcours avec nous</h3>
+            <p>Que vous souhaitiez immigrer, trouver un emploi ou poursuivre vos études au Canada, nous sommes là pour vous aider.</p>
+            <a href="{{ path('contact') }}" class="btn btn-danger btn-lg">Nous contacter maintenant</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

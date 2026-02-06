@@ -4,7 +4,107 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Sponsor</h1>
-    <p>Bienvenue sur la page Sponsor. En savoir plus sur les programmes de parrainage et les obligations du parrain.</p>
+    <h1 class="mb-4">Programmes de Parrainage</h1>
+    <p class="lead">En savoir plus sur les programmes de parrainage et les obligations du parrain</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Types de Parrainage</h2>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5>Parrainage Familial</h5>
+                </div>
+                <div class="card-body">
+                    <p>Parrainez vos proches pour les aider à immigrer au Canada:</p>
+                    <ul>
+                        <li>Conjoint ou partenaire</li>
+                        <li>Enfants</li>
+                        <li>Parents et grands-parents</li>
+                        <li>Frères, sœurs, tantes, oncles et cousins</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5>Parrainage Communautaire</h5>
+                </div>
+                <div class="card-body">
+                    <p>Les groupes communautaires peuvent parrainer des réfugiés ou des personnes en détresse à l'extérieur du Canada.</p>
+                </div>
+            </div>
+
+            <h2 class="mt-5">Obligations du Parrain</h2>
+            <div class="alert alert-info">
+                <h5>En tant que parrain, vous devez:</h5>
+                <ul class="mb-0">
+                    <li>Être citoyen canadien ou résident permanent</li>
+                    <li>Avoir au moins 18 ans</li>
+                    <li>Avoir une résidence ordinaire au Canada</li>
+                    <li>Fournir un soutien financier à la personne parrainée</li>
+                    <li>Respecter les conditions de parrainage pendant une période déterminée</li>
+                    <li>Signaler les changements de situation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Questions sur le Parrainage?</h5>
+                    <p class="card-text">Notre équipe peut vous expliquer les exigences spécifiques et vous guider à travers le processus.</p>
+                    {% if success %}
+                        <div class="alert alert-success" role="alert">
+                            Merci! Votre demande a été enregistrée.
+                        </div>
+                    {% else %}
+                        <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#sponsorModal">
+                            Nous contacter
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Service Request -->
+<div class="modal fade" id="sponsorModal" tabindex="-1" aria-labelledby="sponsorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sponsorModalLabel">Demande de consultation - Parrainage</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.country) }}
+                    {{ form_widget(form.country) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.details) }}
+                    {{ form_widget(form.details) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Envoyer la demande</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

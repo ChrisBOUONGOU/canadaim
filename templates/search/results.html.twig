@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats de recherche - {% if query %}{{ query }}{% else %}Canadaim{% endif %}{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Résultats de recherche</h1>
+    
+    <form method="GET" action="{{ path('search') }}" class="mb-4">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="Rechercher..." autofocus>
+            <button class="btn btn-danger" type="submit">Rechercher</button>
+        </div>
+    </form>
+
+    {% if query %}
+        {% if results is empty %}
+            <div class="alert alert-info">
+                <h4>Aucun résultat trouvé</h4>
+                <p>Nous n'avons trouvé aucune page correspondant à "<strong>{{ query }}</strong>".</p>
+                <p>Essayez avec d'autres mots-clés ou consultez notre <a href="{{ path('contact') }}">formulaire de contact</a>.</p>
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                <strong>{{ results|length }}</strong> résultat{{ results|length > 1 ? 's' : '' }} trouvé{{ results|length > 1 ? 's' : '' }} pour "<strong>{{ query }}</strong>"
+            </div>
+
+            <div class="row">
+                {% for result in results %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <span class="badge bg-danger mb-2">{{ result.category }}</span>
+                                    <br>
+                                    {{ result.title }}
+                                </h5>
+                                <p class="card-text">{{ result.content|truncate(150, '...') }}</p>
+                                <a href="{{ result.url }}" class="btn btn-sm btn-danger">Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-info">
+            <p>Entrez un terme de recherche dans le champ ci-dessus pour commencer votre recherche.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

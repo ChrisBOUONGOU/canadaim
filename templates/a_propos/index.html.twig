@@ -4,7 +4,67 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>À Propos</h1>
-    <p>Bienvenue sur la page À Propos. Découvrez qui nous sommes et notre mission chez Canadaim.</p>
+    <h1 class="mb-4">À Propos de Canadaim</h1>
+    
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Notre Histoire</h2>
+            <p>Canadaim a été fondée avec une mission simple: aider les gens du monde entier à réaliser leur rêve d'immigrer, de travailler ou d'étudier au Canada. Avec plus de 10 ans d'expérience, nous avons aidé des milliers de clients à atteindre leurs objectifs.</p>
+
+            <h2 class="mt-4">Notre Mission</h2>
+            <p>Fournir des services d'immigration professionnels, transparents et abordables qui transforment les rêves en réalité.</p>
+
+            <h2 class="mt-4">Nos Valeurs</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="border p-3">
+                        <h5><strong>Intégrité</strong></h5>
+                        <p>Nous opérons avec transparence et honnêteté en tout temps.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="border p-3">
+                        <h5><strong>Excellence</strong></h5>
+                        <p>Nous nous efforçons de fournir les meilleurs services possibles.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="border p-3">
+                        <h5><strong>Compassion</strong></h5>
+                        <p>Nous comprenons les défis de nos clients et les soutenons.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="border p-3">
+                        <h5><strong>Innovation</strong></h5>
+                        <p>Nous utilisons les dernières technologies pour améliorer nos services.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mt-4">Notre Équipe</h2>
+            <p>Notre équipe est composée de consultants qualifiés et expérimentés dans les domaines de l'immigration, du travail et de l'éducation. Tous nos consultants respectent les codes d'éthique professionnels et sont à jour avec les dernières réglementations canadiennes.</p>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-danger text-white mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Chiffres clés</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>10+</strong> ans d'expérience</li>
+                        <li><strong>5000+</strong> clients satisfaits</li>
+                        <li><strong>15+</strong> consultants experts</li>
+                        <li><strong>95%</strong> taux de succès</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Nous rejoindre?</h5>
+                    <p class="card-text">Parlons de vos objectifs et comment nous pouvons vous aider.</p>
+                    <a href="{{ path('contact') }}" class="btn btn-danger w-100">Commencer</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

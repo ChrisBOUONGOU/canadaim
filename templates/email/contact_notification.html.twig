@@ -1,0 +1,14 @@
+<h2>Nouveau message de contact</h2>
+
+<p><strong>De:</strong> {{ message.name }} ({{ message.email }})</p>
+<p><strong>Téléphone:</strong> {{ message.phone ?? 'Non fourni' }}</p>
+<p><strong>Sujet:</strong> {{ message.subject }}</p>
+
+<hr>
+
+<p><strong>Message:</strong></p>
+<p>{{ message.message }}</p>
+
+<hr>
+
+<p><small>Reçu le: {{ message.createdAt|date('d/m/Y H:i') }}</small></p>

@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de Bord Admin - Canadaim{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>Tableau de Bord Administrateur</h1>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Messages de Contact</h5>
+                    <p class="card-text display-4">{{ total_contacts }}</p>
+                    <a href="{{ path('admin_messages') }}" class="btn btn-light btn-sm">Voir tous</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Demandes de Service</h5>
+                    <p class="card-text display-4">{{ total_requests }}</p>
+                    <a href="{{ path('admin_requests') }}" class="btn btn-light btn-sm">Voir tous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Messages -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Derniers Messages de Contact</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Sujet</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if contact_messages %}
+                                {% for message in contact_messages %}
+                                    <tr>
+                                        <td>{{ message.name }}</td>
+                                        <td>{{ message.email }}</td>
+                                        <td><span class="badge bg-secondary">{{ message.subject }}</span></td>
+                                        <td>{{ message.createdAt|date('d/m/Y H:i') }}</td>
+                                        <td>
+                                            <a href="{{ path('admin_message_detail', {id: message.id}) }}" class="btn btn-sm btn-primary">Voir</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">Aucun message</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Requests -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Dernières Demandes de Service</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Pays</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if service_requests %}
+                                {% for request in service_requests %}
+                                    <tr>
+                                        <td>{{ request.name }}</td>
+                                        <td>{{ request.email }}</td>
+                                        <td><span class="badge bg-info">{{ request.type }}</span></td>
+                                        <td>{{ request.country ?? '-' }}</td>
+                                        <td>{{ request.createdAt|date('d/m/Y H:i') }}</td>
+                                        <td>
+                                            <a href="{{ path('admin_request_detail', {id: request.id}) }}" class="btn btn-sm btn-primary">Voir</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted">Aucune demande</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

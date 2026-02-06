@@ -4,7 +4,123 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Immigration</h1>
-    <p>Bienvenue sur la page Immigration. Découvrez les différents programmes et services d'immigration offerts par AccompaCanada.</p>
+    <h1 class="mb-4">Immigration au Canada</h1>
+    <p class="lead">Découvrez les différents programmes et services d'immigration offerts par Canadaim</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Nos Services d'Immigration</h2>
+            <p>Canadaim vous propose un accompagnement complet pour réaliser votre rêve d'immigrer au Canada.</p>
+
+            <div class="accordion mt-4" id="accordionImmigration">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            Résidence Permanente
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordionImmigration">
+                        <div class="accordion-body">
+                            <p>Accédez à la résidence permanente canadienne par plusieurs programmes:</p>
+                            <ul>
+                                <li>Entrée Express (Federal Skilled Worker, Federal Skilled Trades, Canadian Experience Class)</li>
+                                <li>Programmes provinciaux (PNP)</li>
+                                <li>Programme de sponsorship familial</li>
+                                <li>Programme des immigrants investisseurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            Visa de Travail
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionImmigration">
+                        <div class="accordion-body">
+                            <p>Obtenez un visa de travail temporaire pour:</p>
+                            <ul>
+                                <li>Programme International Mobility Program (IMP)</li>
+                                <li>Permis de travail fermé (lié à un employeur)</li>
+                                <li>Permis de travail ouvert</li>
+                                <li>Travail autonome</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            Sponsorship Familial
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionImmigration">
+                        <div class="accordion-body">
+                            <p>Regroupez votre famille au Canada via le sponsorship familial. Nous vous aidons à réunir tous les documents nécessaires et à naviguer le processus complexe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Besoin d'aide?</h5>
+                    <p class="card-text">Notre équipe d'experts est prête à évaluer votre situation et vous proposer la meilleure solution d'immigration.</p>
+                    
+                    {% if success %}
+                        <div class="alert alert-success" role="alert">
+                            Merci! Votre demande a été enregistrée.
+                        </div>
+                    {% else %}
+                        <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#immigrationModal">
+                            Demander une consultation
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Service Request -->
+<div class="modal fade" id="immigrationModal" tabindex="-1" aria-labelledby="immigrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="immigrationModalLabel">Demande de consultation - Immigration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.country) }}
+                    {{ form_widget(form.country) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.details) }}
+                    {{ form_widget(form.details) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Envoyer la demande</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

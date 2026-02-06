@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Message - Admin{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>Détails du Message</h1>
+            <a href="{{ path('admin_messages') }}" class="btn btn-secondary mt-2">← Retour aux messages</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Message #{{ message.id }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6>Nom</h6>
+                            <p>{{ message.name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Email</h6>
+                            <p><a href="mailto:{{ message.email }}">{{ message.email }}</a></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6>Téléphone</h6>
+                            <p>{{ message.phone ?? '-' }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Sujet</h6>
+                            <p>{{ message.subject }}</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h6>Message</h6>
+                    <div class="p-3 bg-light rounded">
+                        {{ message.message|nl2br }}
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Date de réception</h6>
+                            <p>{{ message.createdAt|date('d/m/Y H:i:s') }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Statut</h6>
+                            <p>
+                                {% if message.status == 'new' %}
+                                    <span class="badge bg-danger">Nouveau</span>
+                                {% elseif message.status == 'read' %}
+                                    <span class="badge bg-warning">Lu</span>
+                                {% else %}
+                                    <span class="badge bg-success">{{ message.status }}</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

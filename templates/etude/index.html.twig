@@ -4,7 +4,105 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Étude</h1>
-    <p>Bienvenue sur la page Étude. Consultez les programmes d'études et les établissements d'enseignement au Canada.</p>
+    <h1 class="mb-4">Poursuivre ses Études au Canada</h1>
+    <p class="lead">Consultez les programmes d'études et les établissements d'enseignement au Canada</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Avantages d'étudier au Canada</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="border-left p-3" style="border-left: 4px solid #dc3545;">
+                        <h5>Éducation de Classe Mondiale</h5>
+                        <p>Les universités canadiennes sont reconnues internationalement pour leur excellence académique.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="border-left p-3" style="border-left: 4px solid #dc3545;">
+                        <h5>Frais de Scolarité Abordables</h5>
+                        <p>Les frais pour les étudiants internationaux sont généralement moins élevés qu'aux États-Unis ou au Royaume-Uni.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="border-left p-3" style="border-left: 4px solid #dc3545;">
+                        <h5>Permis d'Études & Travail</h5>
+                        <p>Possibilité de travailler pendant et après les études, avec accès au marché du travail canadien.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="border-left p-3" style="border-left: 4px solid #dc3545;">
+                        <h5>Chemin vers la Résidence</h5>
+                        <p>Après vos études, vous pouvez demander la résidence permanente plus facilement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mt-5">Types de Programmes</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Baccalauréat:</strong> 3-4 ans</li>
+                <li class="list-group-item"><strong>Maîtrise:</strong> 2-3 ans</li>
+                <li class="list-group-item"><strong>Doctorat:</strong> 3-6 ans</li>
+                <li class="list-group-item"><strong>Programmes collégiaux:</strong> 2-3 ans</li>
+                <li class="list-group-item"><strong>Cours et certifications:</strong> Durée variable</li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Bourses Disponibles</h5>
+                    <p class="card-text">Plusieurs bourses d'études sont disponibles pour les étudiants internationaux au Canada.</p>
+                    {% if success %}
+                        <div class="alert alert-success" role="alert">
+                            Merci! Votre demande a été enregistrée.
+                        </div>
+                    {% else %}
+                        <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#etudeModal">
+                            En savoir plus
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Service Request -->
+<div class="modal fade" id="etudeModal" tabindex="-1" aria-labelledby="etudeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="etudeModalLabel">Demande de consultation - Études</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.country) }}
+                    {{ form_widget(form.country) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.details) }}
+                    {{ form_widget(form.details) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Envoyer la demande</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

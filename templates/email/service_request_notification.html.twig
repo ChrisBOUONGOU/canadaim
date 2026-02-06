@@ -1,0 +1,14 @@
+<h2>Nouvelle demande de service: {{ service_name }}</h2>
+
+<p><strong>De:</strong> {{ request.name }} ({{ request.email }})</p>
+<p><strong>Téléphone:</strong> {{ request.phone ?? 'Non fourni' }}</p>
+<p><strong>Pays:</strong> {{ request.country ?? 'Non spécifié' }}</p>
+
+<hr>
+
+<p><strong>Détails:</strong></p>
+<p>{{ request.details ?? 'Aucun détail fourni' }}</p>
+
+<hr>
+
+<p><small>Reçu le: {{ request.createdAt|date('d/m/Y H:i') }}</small></p>

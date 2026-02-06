@@ -4,7 +4,135 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Contact</h1>
-    <p>Bienvenue sur la page Contact. N'hésitez pas à nous contacter pour toute question ou demande d'information.</p>
+    <h1 class="mb-4">Nous Contacter</h1>
+    <p class="lead">N'hésitez pas à nous contacter pour toute question ou demande d'information</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📞 Téléphone</h5>
+                    <p class="card-text">
+                        <a href="tel:+15812225712">+1 (581) 222-5712</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📧 Email</h5>
+                    <p class="card-text">
+                        <a href="mailto:info@canadaim.com">info@canadaim.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📍 Adresse</h5>
+                    <p class="card-text">
+                        10 rue des lilas Ouest<br>
+                        Quebec, QC, Canada, G1L 1A6
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-8 offset-lg-2">
+            <h2 class="mb-4">Formulaire de Contact</h2>
+            
+            {% if success %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Succès!</strong> Merci pour votre message. Nous vous répondrons bientôt.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    {% if form.name.vars.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.name.vars.errors %}
+                                {{ error.message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {% if form.email.vars.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.email.vars.errors %}
+                                {{ error.message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.subject) }}
+                    {{ form_widget(form.subject) }}
+                    {% if form.subject.vars.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.subject.vars.errors %}
+                                {{ error.message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.message) }}
+                    {{ form_widget(form.message) }}
+                    {% if form.message.vars.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.message.vars.errors %}
+                                {{ error.message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-lg w-100">Envoyer le Message</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>Heures d'Ouverture</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><strong>Lundi - Vendredi</strong></td>
+                            <td>9:00 AM - 6:00 PM (EST)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Samedi</strong></td>
+                            <td>10:00 AM - 4:00 PM (EST)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dimanche</strong></td>
+                            <td>Fermé</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

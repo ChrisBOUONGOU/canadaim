@@ -4,7 +4,113 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Travail</h1>
-    <p>Bienvenue sur la page Travail. Explorez les opportunités d'emploi et les programmes de travail au Canada.</p>
+    <h1 class="mb-4">Opportunités d'Emploi au Canada</h1>
+    <p class="lead">Explorez les opportunités d'emploi et les programmes de travail au Canada</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Pourquoi travailler au Canada?</h2>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Salaires compétitifs:</strong> Rémunération parmi les plus élevées en Amérique du Nord</li>
+                <li class="list-group-item"><strong>Avantages sociaux:</strong> Assurance santé, régimes de retraite généreux</li>
+                <li class="list-group-item"><strong>Qualité de vie:</strong> Équilibre travail-vie personnelle et environnement de travail respectueux</li>
+                <li class="list-group-item"><strong>Croissance de carrière:</strong> Nombreuses opportunités de développement professionnel</li>
+                <li class="list-group-item"><strong>Chemin vers la résidence:</strong> Possibilité de devenir résident permanent</li>
+            </ul>
+
+            <h2 class="mt-5">Secteurs en Demande</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Technologies</h5>
+                            <p class="card-text">Développeurs, ingénieurs informatiques, data scientists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Santé</h5>
+                            <p class="card-text">Infirmières, médecins, professionnels de la santé</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Construction & Ingénierie</h5>
+                            <p class="card-text">Électriciens, plombiers, ingénieurs civils</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Affaires & Finance</h5>
+                            <p class="card-text">Analystes financiers, comptables, gestionnaires</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Offres d'Emploi Exclusives</h5>
+                    <p class="card-text">Découvrez nos offres d'emploi sélectionnées par nos partenaires canadiens.</p>
+                    {% if success %}
+                        <div class="alert alert-light" role="alert">
+                            Merci! Votre demande a été enregistrée.
+                        </div>
+                    {% else %}
+                        <button type="button" class="btn btn-light w-100" data-bs-toggle="modal" data-bs-target="#travailModal">
+                            Consulter les offres
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Service Request -->
+<div class="modal fade" id="travailModal" tabindex="-1" aria-labelledby="travailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="travailModalLabel">Demande de consultation - Travail</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.country) }}
+                    {{ form_widget(form.country) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.details) }}
+                    {{ form_widget(form.details) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Envoyer la demande</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
